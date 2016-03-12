@@ -16,7 +16,7 @@ from ubuntu:precise
 
 maintainer Dockerfiles
 
-run echo "deb http://us.archive.ubuntu.com/ubuntu/ precise-updates main restricted" | tee -a /etc/apt/sources.list.d/precise-updates.list
+run echo "deb http://mirrors.163.com/ubuntu/ precise-updates main restricted" | tee -a /etc/apt/sources.list.d/precise-updates.list
 run apt-get update
 run apt-get install -y git
 run apt-get install -y python python-dev python-setuptools
