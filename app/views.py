@@ -43,8 +43,8 @@ class DefaultFormView(FormView):
     form_class = ContactForm
 
     def getopenid(request):
-        appid=''
-        appsecret=''
+        appid= 'wx0ebe45ac16ee690b'
+        appsecret= 'd4624c36b6795d1d99dcf0547af5443d'
         code = request.GET['code']
         state = request.GET['state']
         if code:
