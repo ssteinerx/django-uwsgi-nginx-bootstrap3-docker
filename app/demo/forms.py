@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django import forms
 from django.forms.formsets import BaseFormSet, formset_factory
-from django.http import HttpResponse
+
 
 from bootstrap3.tests import TestForm
 
@@ -26,13 +26,9 @@ MEDIA_CHOICES = (
     ('unknown', 'Unknown'),
 )
 
-class ContactForm(forms.Form):
-    num1 = forms.CharField(
-        required=True,
-    )
-    num2 = forms.CharField(
-        required=True,
-    )
+
+class ContactForm(TestForm):
+    pass
 
 
 class ContactBaseFormSet(BaseFormSet):

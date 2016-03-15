@@ -8,11 +8,6 @@ from django.views.generic import FormView
 from django.views.generic.base import TemplateView
 from django.contrib import messages
 
-from django.http import HttpResponse
-from django.shortcuts import render
-import requests
-import json
-
 from .forms import ContactForm, FilesForm, ContactFormSet
 
 
@@ -41,41 +36,6 @@ class DefaultFormsetView(FormView):
 class DefaultFormView(FormView):
     template_name = 'demo/form.html'
     form_class = ContactForm
-
-    def getopenid(request):
-        appid= 'wx0ebe45ac16ee690b'
-        appsecret= 'd4624c36b6795d1d99dcf0547af5443d'
-        code = request.GET['code']
-        state = request.GET['state']
-        if code:
-            url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid=' + appid + '&secret=' + appsecret + \
-                  '&code='+code + '&grant_type=authorization_code'
-            try:
-                resp = requests.get(url)
-            except:
-                return HttpResponse('get access_token failed')
-            atdata = json.loads(resp.content)
-            at = atdata['access_token']
-            oid = atdata['openid']
-            return HttpResponse(oid)
-        else:
-            form = ContactForm()
-            return render(request, 'demo/form.html', {'form': form})
-
-
-
-    def index(request):
-        if request.method == 'POST':# 当提交表单时
-            form = ContactForm(request.POST) # form 包含提交的数据
-
-            if form.is_valid():# 如果提交的数据合法
-                a = form.cleaned_data['num1']
-                b = form.cleaned_data['num2']
-                return HttpResponse(str(int(a) + int(b)))
-        else:
-            form = ContactForm()
-            return render(request, 'demo/form.html', {'form': form})
-
 
 
 class DefaultFormByFieldView(FormView):
