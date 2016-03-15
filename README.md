@@ -17,6 +17,7 @@ Revise uwsgi.ini :module=*YourDjangoProjectName*.wsgi:application. you will need
 to the wsgi.py file is relative to that.
 
 ### Tree
+'''
 app:
 │  requirements.txt
 │
@@ -42,3 +43,4 @@ app:
     │          home.html
     │          misc.html
     │          pagination.html
+'''
