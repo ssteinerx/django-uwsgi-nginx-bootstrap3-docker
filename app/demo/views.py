@@ -58,6 +58,9 @@ class DefaultFormView(FormView):
             at = atdata['access_token']
             oid = atdata['openid']
             return HttpResponse(oid)
+        else:
+            form = ContactForm()
+            return render(request, 'demo/form.html', {'form': form})
 
 
 
