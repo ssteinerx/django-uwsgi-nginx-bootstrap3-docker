@@ -11,7 +11,7 @@ and speedy setup for Django with uWSGI and Nginx.
 
 In /app currently a django project is created with startproject. You will
 probably want to replace the content of /app with the root of your django
-project,And delete manage.py.
+project, and delete manage.py.
 
-revise uwsgi.ini :"module=*YourDjangoProjectName*.wsgi:application".you will need to make sure the python path
+Revise uwsgi.ini :module=*YourDjangoProjectName*.wsgi:application. you will need to make sure the python path
 to the wsgi.py file is relative to that.
